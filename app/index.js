@@ -1,5 +1,5 @@
 "use strict";
-
+console.log('psg-index-start');
 const {app, protocol, shell, BrowserWindow} = require("electron");
 const pkg      = require("./package.json");
 const fs       = require("fs");
@@ -14,7 +14,7 @@ app.commandLine.appendSwitch("disable-site-isolation-trials");
 
 const remoteMain = require("@electron/remote/main");
 remoteMain.initialize();
-
+console.log('psg-index-init');
 // Disable hardware acceleration by default for Linux
 // TODO: implement a setting for this one and requires a restart after changing that value
 if (process.platform.trim().toLowerCase() == "linux" && app.disableHardwareAcceleration) {
@@ -75,6 +75,7 @@ function createWindow() {
     } else if (process.env.PENCIL_ENV === "development") {
         devEnable = true;
     }
+    console.log('psg-index-devEnable:'+devEnable);
 
     app.devEnable = devEnable;
 
@@ -91,7 +92,8 @@ function createWindow() {
     mainWindow.loadURL(mainUrl);
     mainWindow.show();
 
-    if (devEnable) mainWindow.webContents.openDevTools();
+    //psg if (devEnable) mainWindow.webContents.openDevTools();
+    mainWindow.webContents.openDevTools();
 
     mainWindow.on("closed", function() {
         mainWindow = null;
@@ -139,7 +141,7 @@ app.on('ready', function() {
 
     // Create the browser window.
     createWindow();
-
+    console.log('psg-index-createwindow');
     const renderer = require("./pencil-core/common/renderer");
     renderer.start();
 
