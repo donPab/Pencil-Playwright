@@ -5,8 +5,7 @@ test('App launches', async ({ page }) => {
     
     console.log("psg-play21launch-b4");
     const app = await _electron.launch({
-      args: ['C:\\H_Paul\\Pencil\\pencil-312-05myDev\\pencil\\app\\index.js', '--enable-dev --enable-transparent-visuals'],
-      cwd: 'C:\\H_Paul\\Pencil\\pencil-312-05myDev\\pencil\\app\\'
+      args: ['index.js', '--enable-dev --enable-transparent-visuals'],
     });
     console.log("psg-play21launch-af");
     await page.pause();
