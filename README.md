@@ -1,3 +1,5 @@
+Very old version from 1995, confirming that few changes to certain code constructs have been made.
+I.E. the bugs being found have been there for a long time.
 
 ![Image of Yaktocat](screenshot.png)
 
